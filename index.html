@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script defer src="index.js"></script>
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-section">
+        <div class="top-left">
+          <div class="current-section">
+            <div class="current-status">
+              <h3 class="location" id="current-location">Athens</h3>
+              <div class="current-temperature">
+                <h1 id="current-temp">16</h1>
+                <img src="icons/degree16px.svg" alt="" id="degree-16" />
+              </div>
+              <h3>Now</h3>
+            </div>
+            <div class="cat-says">
+              <h5 id="about-cat">Protect your cat her fur will get wet.</h5>
+            </div>
+          </div>
+          <div class="cta">
+            <button id="hourly-cta">Hourly</button>
+            <button id="daily-cta">Daily</button>
+          </div>
+          <div class="hourly-status">
+            <div class="hourly-time">
+              <h6 id="t1">Now</h6>
+              <h6 id="t2">13:00</h6>
+              <h6 id="t3">14:00</h6>
+              <h6 id="t4">15:00</h6>
+              <h6 id="t5">16:00</h6>
+              <h6 id="t6">17:00</h6>
+              <h6 id="t7">18:00</h6>
+            </div>
+            <div class="hourly-icon">
+              <img src="icons/fontisto_rain36px.svg" alt="" id="t1-icon" /><img
+                src="icons/Group 336px.svg"
+                alt=""
+                id="t2-icon"
+              /><img src="icons/la_wind36px.svg" alt="" id="t3-icon" /><img
+                src="icons/wpf_rain36px.svg"
+                alt=""
+                id="t4-icon"
+              /><img src="icons/Group 336px.svg" alt="" id="t5-icon" /><img
+                src="icons/la_wind36px.svg"
+                alt=""
+                id="t6-icon"
+              /><img src="icons/wpf_rain36px.svg" alt="" id="t7-icon" />
+            </div>
+          </div>
+          <div class="tomorrow-status" display="none"></div>
+        </div>
+        <div class="top-right cat-section">
+          <img src="icons/rain_drops.svg" alt="" id="drops" /><img
+            src="cat-rain.svg"
+            alt=""
+            id="cat-img"
+          />
+        </div>
+      </div>
+      <div class="conditions-section">
+        <div class="conditions-parent">
+          <div class="cards" id="chance-of-rain">
+            <h6>Chance of rain</h6>
+            <img src="icons/wpf_rain48px.svg" alt="" id="chance-of-rain-icon" />
+            <div class="chance-value">
+              <span class="values" id="ch-val">40</span
+              ><span class="unit">%</span>
+            </div>
+          </div>
+          <div class="cards" id="humidity">
+            <h6>Humidity</h6>
+            <img src="icons/drop48px.svg" alt="" id="humidity-icon" />
+            <div class="humidity-value">
+              <span class="values" id="hum-val">61</span
+              ><span class="unit">%</span>
+            </div>
+          </div>
+          <div class="cards" id="feels-like">
+            <h6>Feels-Like</h6>
+            <img
+              src="icons/thermometer-outline48.svg"
+              alt=""
+              id="feels-like-icon"
+            />
+            <div class="feels-like-value">
+              <span class="values" id="feel-val">20</span
+              ><img id="degree-12" src="icons/degree12px.svg" />
+            </div>
+          </div>
+          <div class="cards" id="wind">
+            <h6>Wind</h6>
+            <img src="icons/ph_wind48px.svg" alt="" id="wind-icon" />
+            <div class="wind-value">
+              <span class="values" id="win-val">41</span
+              ><span class="unit">km/h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
