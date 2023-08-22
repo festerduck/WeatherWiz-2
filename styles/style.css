@@ -25,6 +25,56 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+body.show-elements::before {
+  display: all;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  z-index: 1;
+  position: absolute;
+  animation: opcacity 100ms ease-in;
+  opacity: 0.9;
+}
+.hide-search {
+  display: none;
+  pointer-events: all;
+  /* animation: opcacity 200ms ease-in; */
+}
+.show-search {
+  position: absolute;
+  width: 500px;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
+  z-index: 1;
+  /* animation: opcacity 200ms ease-in; */
+}
+.show-search > label {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 36px;
+  font-weight: 700;
+}
+#search-box {
+  width: 100%;
+  height: 30%;
+  text-align: center;
+  border-radius: 40px;
+  padding: 20px;
+  background-color: rgb(235, 248, 255);
+  font-size: 24px;
+  font-weight: 700;
+}
+
 .container {
   width: 987px;
   height: 785px;
@@ -32,8 +82,29 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 15px;
+  pointer-events: none;
 }
 
+.search {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  pointer-events: all;
+}
+.search img {
+  position: absolute;
+  width: 36px;
+  right: 10px;
+  /* top: -100px; */
+  cursor: pointer;
+}
+.search > img:hover {
+  animation: searchIcon 500ms ease-in-out;
+}
 .top-section {
   width: 100%;
   display: flex;
@@ -112,6 +183,7 @@ body {
   font-size: 32px;
   font-weight: 700;
   cursor: pointer;
+  pointer-events: all;
 }
 #hourly-cta {
   background-color: var(--background-dark);
@@ -188,9 +260,16 @@ body {
   border: 1.5px solid var(--black);
   padding: 15px;
   animation: content 700ms ease-in;
+  pointer-events: all;
+}
+.cards:hover {
+  cursor: pointer;
 }
 .cards > h6 {
   font-size: 20px;
+}
+.cards > img {
+  pointer-events: none;
 }
 .values {
   font-size: 48px;
@@ -255,5 +334,27 @@ body {
     opacity: 1;
     filter: blur(0px);
     /* transform: scale(1); */
+  }
+}
+@keyframes searchIcon {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes opcacity {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.45;
+  }
+  100% {
+    opacity: 0.9;
   }
 }
