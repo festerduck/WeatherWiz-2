@@ -38,73 +38,60 @@ body.show-elements::before {
   transition: opacity ease-in;
   opacity: 0.9;
 }
-.hide-search {
-  display: none;
-  pointer-events: all;
-  /* animation: opcacity 200ms ease-in; */
-}
 .show-search {
-  position: absolute;
-  width: 600px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--white);
-  z-index: 1;
-  top: 30%;
-  /* animation: opcacity 200ms ease-in; */
-}
-.show-search > label {
   width: 100%;
-  height: 100%;
+  height: 10%;
   display: flex;
-  flex-direction: column;
+}
+.search-wrapper {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  font-size: 36px;
-  font-weight: 700;
+}
+#search-label {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d6e0e6;
+  border-radius: 20px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#search-label:focus-within {
+  /* background-color: #525657; */
 }
 #search-box {
-  width: 100%;
-  height: 70px;
-  text-align: center;
-  border-radius: 30px;
-  padding: 20px;
-  background-color: rgb(235, 248, 255);
-  font-size: 24px;
-  font-weight: 700;
+  height: 100%;
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
   text-transform: uppercase;
+  text-align: center;
 }
 #search-box:focus {
   outline: none;
 }
 .container {
+  position: relative;
   width: 987px;
-  height: 785px;
+  height: 760px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
-  pointer-events: none;
 }
 
 .search {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  position: relative;
-  pointer-events: all;
 }
 .search img {
-  position: absolute;
-  width: 28px;
-  right: 10px;
-  /* top: -100px; */
+  width: 24px;
+  transition: all 500ms ease-in;
   cursor: pointer;
 }
 .search > img:hover {
@@ -235,18 +222,17 @@ body.show-elements::before {
 }
 #drops {
   position: absolute;
-  top: -70px;
+  top: -50px;
   right: 200px;
   transform-origin: top;
   animation: drops 700ms ease-in-out;
 }
 .conditions-section {
   width: 100%;
-  /* height: 50%; */
   display: flex;
-  /* flex: 1; */
   justify-content: space-between;
   align-items: center;
+  margin: 0px;
 }
 .conditions-parent {
   width: 100%;
