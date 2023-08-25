@@ -142,6 +142,12 @@ function content(data) {
   currentLocation.innerText = data[0].name;
   const temp = data[1].temp.toFixed(0);
   currentTemp.innerText = temp;
+  currentTemp.classList.add("animation");
+  currentLocation.classList.add("text-animation");
+  setTimeout(() => {
+    currentLocation.classList.remove("text-animation");
+    currentTemp.classList.remove("animation");
+  }, 1000);
   feelsLike.innerText = data[1].feels_like;
   windVal.innerText = data[1].wind_speed.toFixed(0);
   humVal.innerText = data[1].humidity;
@@ -188,11 +194,21 @@ async function fetchData(lat, long, location) {
 
 function showLoadingAnimation(value) {
   if (value) {
-    loadingAnimation.style.display = "flex";
+    // container.style.transition = "opacity 500ms";
+    // container.style.opacity = "0.3";
     container.classList.add("loading");
+    setTimeout(() => {
+      container.style.opacity = 1;
+      loadingAnimation.style.display = "flex";
+    }, 300);
   } else {
-    loadingAnimation.style.display = "none";
-    container.classList.remove("loading");
+    container.style.transition = "opacity 500ms";
+    container.style.opacity = "0";
+    setTimeout(() => {
+      container.classList.remove("loading");
+      loadingAnimation.style.display = "none";
+      container.style.opacity = 1;
+    }, 300);
   }
 }
 
