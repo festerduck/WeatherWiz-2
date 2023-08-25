@@ -8,12 +8,20 @@
     <title>Weather</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container loading">
+      <div class="loading-ring">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
       <div class="show-search">
         <div class="search-wrapper">
           <label id="search-label" for="">
             <!-- Search City Weather -->
-            <input id="search-box" type="text" placeholder="ENTER THE CITY" />
+            <input id="search-box" type="text" placeholder="Enter the City" />
             <div class="search">
               <img id="search-icon" src="icons/search.png" alt="search" />
             </div>
@@ -77,12 +85,14 @@
           </div>
           <div class="tomorrow-status" display="none"></div>
         </div>
-        <div class="top-right cat-section">
-          <img src="icons/rain_drops.svg" alt="" id="drops" /><img
-            src="cat-rain.svg"
-            alt=""
-            id="cat-img"
-          />
+        <div class="top-right">
+          <div class="cat-section">
+            <img src="icons/rain_drops.svg" alt="" id="drops" /><img
+              src="cat-rain.svg"
+              alt=""
+              id="cat-img"
+            />
+          </div>
         </div>
       </div>
       <div class="conditions-section">
@@ -99,7 +109,7 @@
             <h6>Humidity</h6>
             <img src="icons/drop48px.svg" alt="" id="humidity-icon" />
             <div class="humidity-value">
-              <span class="values" id="hum-val">61</span
+              <span class="values" id="hum-val">--</span
               ><span class="unit">%</span>
             </div>
           </div>
@@ -111,7 +121,7 @@
               id="feels-like-icon"
             />
             <div class="feels-like-value">
-              <span class="values" id="feel-val">20</span
+              <span class="values" id="feel-val">--</span
               ><img id="degree-12" src="icons/degree12px.svg" />
             </div>
           </div>
@@ -119,7 +129,7 @@
             <h6>Wind</h6>
             <img src="icons/ph_wind48px.svg" alt="" id="wind-icon" />
             <div class="wind-value">
-              <span class="values" id="win-val">41</span
+              <span class="values" id="win-val">--</span
               ><span class="unit">km/h</span>
             </div>
           </div>
