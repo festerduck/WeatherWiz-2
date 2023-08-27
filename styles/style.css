@@ -44,7 +44,7 @@ body.show-elements::before {
   display: flex;
 }
 .search-wrapper {
-  width: 50%;
+  width: 520px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,7 +84,7 @@ body.show-elements::before {
   top: 50%;
   left: 0%;
   width: 100%;
-  height: 200px;
+  height: 100px;
   padding: 25px;
   padding-top: 50px;
   background-color: #222222;
@@ -231,6 +231,7 @@ body.show-elements::before {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  pointer-events: none;
 }
 .animation {
   position: relative;
@@ -295,15 +296,17 @@ body.show-elements::before {
 }
 
 .cta {
-  width: 465px;
+  /* width: 465px;
+   */
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   animation: content 700ms ease-in-out;
 }
 .cta > button {
-  width: 204px;
-  height: 54px;
+  width: 230px;
+  height: 60px;
   font-size: 32px;
   font-weight: 700;
   cursor: pointer;
@@ -319,26 +322,38 @@ body.show-elements::before {
   border: 1.5px solid var(--black);
 }
 .hourly-status {
-  width: 465px;
-  height: 76px;
+  /* width: 465px;
+   */
+  width: 100%;
+  height: 100px;
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   overflow: hidden;
+  /* background-color: #9ea5a9; */
+  padding: 5px 5px 5px 5px;
+  /* border-radius: 10px; */
+  /* border: 1.5px solid var(--black); */
 }
-
-.hourly-time {
-  width: 100%;
+.icon-box {
+  height: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: all 400ms;
 }
-.hourly-icon {
-  width: 99.8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.icon-box > img:hover {
+  transition: all 400ms;
+  transform: scale(1.05);
+}
+.icon-box > h4 {
+  font-size: 18px;
+}
+.icon-box > img {
+  cursor: pointer;
+  height: 42px;
 }
 .top-right {
   width: 466px;
@@ -349,7 +364,7 @@ body.show-elements::before {
   position: relative;
 }
 .cat-section {
-  display: none;
+  /* display: none; */
 }
 #cat-img {
   height: 90%;

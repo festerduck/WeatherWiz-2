@@ -11,21 +11,24 @@ const setCurrentLocation = document.getElementById("set-current-location");
 function bodyClickListener(e) {
   e.stopImmediatePropagation();
   changeLabel(false);
-
+  searchIcon.removeEventListener("click", bodyClickListener);
   body.removeEventListener("click", bodyClickListener);
 }
 searchBox.addEventListener("click", (e) => {
   e.stopPropagation();
   changeLabel(true);
-  searchIcon.addEventListener("click", (e) => {
+
+  const searchIconClickHandler = (e) => {
     e.stopPropagation();
     changeLabel(true);
     const location = searchBox.value;
-    console.log("Location from the event listener: ", location);
-    fetchData(false, false, location);
-
-    changeLabel(false);
-  });
+    if (location) {
+      fetchData(false, false, location);
+      changeLabel(false);
+      searchIcon.removeEventListener("click", searchIconClickHandler);
+    }
+  };
+  searchIcon.addEventListener("click", searchIconClickHandler);
   dropDown.addEventListener("click", (e) => {
     e.stopPropagation();
   });
@@ -71,10 +74,9 @@ searchBox.addEventListener("keypress", (e) => {
     console.log("Location from the event listener: ", location);
     if (searchBox.value != "") {
       showLoadingAnimation(true);
+      fetchData(false, false, location);
+      changeLabel(false);
     }
-    fetchData(false, false, location);
-
-    changeLabel(false);
   }
 });
 
@@ -107,40 +109,38 @@ function geoLocationFromBrowser() {
   }
 }
 
-// function searchMechanism(show) {
-//   if (show) {
-//     body.classList.add("show-elements");
-//     search.classList.add("show-search");
-//     search.classList.remove("hide-search");
-//     search.addEventListener("click", (e) => {
-//       e.stopPropagation();
-//     });
-//     searchBox.focus();
-//   } else {
-//     body.classList.remove("show-elements");
-//     search.classList.remove("show-search");
-//     search.classList.add("hide-search");
-//     searchBox.value = "";
-//   }
-// }
-
-// searchIcon.addEventListener("click", (e) => {
-//   e.stopPropagation();
-//   searchMechanism(true);
-//   body.addEventListener("click", (e) => {
-//     e.stopImmediatePropagation();
-//     searchMechanism(false);
-//   });
-// });
-
 function content(data) {
+  function updateIcons(time) {
+    for (let i = 0; i < 7; i++) {
+      const iconElement = document.getElementById(`t${i + 1}-icon`);
+      const iconCode = time[i].data.weather[0].icon;
+      console.log(iconCode);
+      const iconSource = `weather-icons/${iconCode}.svg`;
+      console.log(iconSource);
+      iconElement.src = iconSource;
+    }
+  }
+  function updateTime(time) {
+    for (let i = 1; i < 7; i++) {
+      const timeElement = document.getElementById(`t${i + 1}-time`);
+
+      const hour = time[i].time.hours;
+      const minute = time[i].time.minutes;
+      const second = time[i].time.seconds;
+      timeElement.innerText = hour + ":" + minute + second;
+      console.log("Time : " + hour + ":" + minute + ":" + second);
+    }
+    console.log("Update time function", time);
+  }
+
   const currentLocation = document.getElementById("current-location");
   const currentTemp = document.getElementById("current-temp");
   const feelsLike = document.getElementById("feel-val");
   const windVal = document.getElementById("win-val");
   const humVal = document.getElementById("hum-val");
-  currentLocation.innerText = data[0].name;
-  const temp = data[1].temp.toFixed(0);
+  const precipitation = document.getElementById("ch-val");
+  currentLocation.innerText = data.location.name;
+  const temp = data.current.temp.toFixed(0);
   currentTemp.innerText = temp;
   currentTemp.classList.add("animation");
   currentLocation.classList.add("text-animation");
@@ -148,13 +148,16 @@ function content(data) {
     currentLocation.classList.remove("text-animation");
     currentTemp.classList.remove("animation");
   }, 1000);
-  feelsLike.innerText = data[1].feels_like;
-  windVal.innerText = data[1].wind_speed.toFixed(0);
-  humVal.innerText = data[1].humidity;
-  console.log(data[0].name);
+  feelsLike.innerText = data.current.feels_like.toFixed(0);
+  windVal.innerText = data.current.wind_speed.toFixed(0);
+  humVal.innerText = data.current.humidity;
+  precipitation.innerText = data.hourly[0].data.pop * 100;
+  updateTime(data.hourly);
+  updateIcons(data.hourly);
 }
 
-const baseUrl = "http://20.26.238.217:3000/fetchedData";
+const baseUrl = "http://localhost:3000/fetchedData";
+// const baseUrl = "http://20.26.238.217:3000/fetchedData";
 
 async function fetchData(lat, long, location) {
   console.log("Entered Location: ", location);
@@ -176,9 +179,6 @@ async function fetchData(lat, long, location) {
     });
     if (res.ok) {
       const fetchedData = await res.json();
-      if (lat && long) {
-        // searchBox.value = fetchedData[0].name;
-      }
       console.log(fetchedData);
       showLoadingAnimation(false);
       content(fetchedData);
@@ -194,8 +194,6 @@ async function fetchData(lat, long, location) {
 
 function showLoadingAnimation(value) {
   if (value) {
-    // container.style.transition = "opacity 500ms";
-    // container.style.opacity = "0.3";
     container.classList.add("loading");
     setTimeout(() => {
       container.style.opacity = 1;

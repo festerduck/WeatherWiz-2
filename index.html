@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
-    <script defer src="index.js"></script>
     <title>Weather</title>
   </head>
   <body>
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=nojs.html" />
+    </noscript>
+    <!-- <div class="welcome-page">
+      <h1>Do You Like Cats?</h1>
+    </div> -->
     <div class="container loading">
       <div class="loading-ring">
         <div class="lds-ring">
@@ -58,29 +63,33 @@
             <button id="daily-cta">Daily</button>
           </div>
           <div class="hourly-status">
-            <div class="hourly-time">
-              <h6 id="t1">Now</h6>
-              <h6 id="t2">13:00</h6>
-              <h6 id="t3">14:00</h6>
-              <h6 id="t4">15:00</h6>
-              <h6 id="t5">16:00</h6>
-              <h6 id="t6">17:00</h6>
-              <h6 id="t7">18:00</h6>
+            <div class="t1 icon-box">
+              <h4 id="t1-time">Now</h4>
+              <img id="t1-icon" src="" alt="" />
             </div>
-            <div class="hourly-icon">
-              <img src="icons/fontisto_rain36px.svg" alt="" id="t1-icon" /><img
-                src="icons/Group 336px.svg"
-                alt=""
-                id="t2-icon"
-              /><img src="icons/la_wind36px.svg" alt="" id="t3-icon" /><img
-                src="icons/wpf_rain36px.svg"
-                alt=""
-                id="t4-icon"
-              /><img src="icons/Group 336px.svg" alt="" id="t5-icon" /><img
-                src="icons/la_wind36px.svg"
-                alt=""
-                id="t6-icon"
-              /><img src="icons/wpf_rain36px.svg" alt="" id="t7-icon" />
+            <div class="t2 icon-box">
+              <h4 id="t2-time">13:00</h4>
+              <img id="t2-icon" src="" alt="" />
+            </div>
+            <div class="t3 icon-box">
+              <h4 id="t3-time">14:00</h4>
+              <img id="t3-icon" src="" alt="" />
+            </div>
+            <div class="t4 icon-box">
+              <h4 id="t4-time">15:00</h4>
+              <img id="t4-icon" src="" alt="" />
+            </div>
+            <div class="t5 icon-box">
+              <h4 id="t5-time">16:00</h4>
+              <img id="t5-icon" src="" alt="" />
+            </div>
+            <div class="t6 icon-box">
+              <h4 id="t6-time">17:00</h4>
+              <img id="t6-icon" src="" alt="" />
+            </div>
+            <div class="t7 icon-box">
+              <h4 id="t7-time">18:00</h4>
+              <img id="t7-icon" src="" alt="" />
             </div>
           </div>
           <div class="tomorrow-status" display="none"></div>
@@ -99,7 +108,7 @@
         <div class="conditions-parent">
           <div class="cards" id="chance-of-rain">
             <h6>Chance of rain</h6>
-            <img src="icons/wpf_rain48px.svg" alt="" id="chance-of-rain-icon" />
+            <img src="weather-icons/09n.svg" alt="" id="chance-of-rain-icon" />
             <div class="chance-value">
               <span class="values" id="ch-val">40</span
               ><span class="unit">%</span>
@@ -136,5 +145,6 @@
         </div>
       </div>
     </div>
+    <script defer src="index.js"></script>
   </body>
 </html>
