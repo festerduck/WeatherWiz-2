@@ -156,8 +156,8 @@ function content(data) {
   updateIcons(data.hourly);
 }
 
-const baseUrl = "http://localhost:3000/fetchedData";
-// const baseUrl = "http://20.26.238.217:3000/fetchedData";
+// const baseUrl = "http://localhost:3000/fetchedData";
+const baseUrl = "http://20.26.238.217:3000/fetchedData";
 
 async function fetchData(lat, long, location) {
   console.log("Entered Location: ", location);
