@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Weather</title>
+  </head>
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: "Fira Sans", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #ebf8ff;
+      color: #051923;
+      pointer-events: none;
+      transition: all 1s;
+      animation: animate 1s ease-in-out;
+    }
+
+    h1 {
+      position: absolute;
+      color: #ebf8ff;
+      top: 50%;
+      font-size: 60px;
+    }
+    span {
+      color: #0250b6;
+      background-color: #ffcf0a;
+      font-size: 60px;
+      padding: 0px 10px 0px 10px;
+    }
+
+    @keyframes animate {
+      100% {
+        opacity: 1;
+      }
+      0% {
+        opacity: 0;
+      }
+    }
+  </style>
+  <body>
+    <img id="img" src="assets/v2/sad-cat.jpg" alt="" loading="lazy" />
+    <h1>Why don't you like <span> Cats</span>?</h1>
+  </body>
+</html>

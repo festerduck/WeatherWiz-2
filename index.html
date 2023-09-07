@@ -4,15 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
+
     <title>Weather</title>
   </head>
   <body>
     <noscript>
       <meta http-equiv="refresh" content="0;url=nojs.html" />
     </noscript>
-    <!-- <div class="welcome-page">
-      <h1>Do You Like Cats?</h1>
-    </div> -->
+    <div class="preload">
+      <div class="element">
+        <img src="assets/6.svg" alt="" />
+        <h1 id="question">Do You Like <span> Cats</span>?</h1>
+        <div class="btn">
+          <button id="yes">YES</button>
+          <button id="no">NO</button>
+        </div>
+      </div>
+    </div>
+    <div class="error pop-down">
+      <h2 id="error-text">Some Error Has Occured</h2>
+      <img id="close-error" src="icons/close-white.png" alt="" />
+    </div>
     <div class="container loading">
       <div class="loading-ring">
         <div class="lds-ring">
@@ -47,7 +59,14 @@
         <div class="top-left">
           <div class="current-section skeletons">
             <div class="current-status">
-              <h3 class="location" id="current-location">Location</h3>
+              <div class="location">
+                <img
+                  id="current-location-icon-dark"
+                  src="icons/location-dark.png"
+                  alt=""
+                />
+                <h3 id="current-location">Location</h3>
+              </div>
               <div class="current-temperature">
                 <h1 id="current-temp">0</h1>
                 <img src="icons/degree16px.svg" alt="" id="degree-16" />
@@ -55,7 +74,7 @@
               <h3>Now</h3>
             </div>
             <div class="cat-says">
-              <h5 id="about-cat">Protect your cat her fur will get wet.</h5>
+              <h5 id="about-cat"></h5>
             </div>
           </div>
           <div class="cta">
@@ -96,19 +115,16 @@
         </div>
         <div class="top-right">
           <div class="cat-section">
-            <img src="icons/rain_drops.svg" alt="" id="drops" /><img
-              src="cat-rain.svg"
-              alt=""
-              id="cat-img"
-            />
+            <img src="" alt="" id="cat-img" />
           </div>
+          <div class="dialog">Why you here?</div>
         </div>
       </div>
       <div class="conditions-section">
         <div class="conditions-parent">
           <div class="cards" id="chance-of-rain">
             <h6>Chance of rain</h6>
-            <img src="weather-icons/09n.svg" alt="" id="chance-of-rain-icon" />
+            <img src="icons/rainy-d.svg" alt="" id="chance-of-rain-icon" />
             <div class="chance-value">
               <span class="values" id="ch-val">40</span
               ><span class="unit">%</span>
@@ -116,7 +132,7 @@
           </div>
           <div class="cards" id="humidity">
             <h6>Humidity</h6>
-            <img src="icons/drop48px.svg" alt="" id="humidity-icon" />
+            <img src="icons/humidity.svg" alt="" id="humidity-icon" />
             <div class="humidity-value">
               <span class="values" id="hum-val">--</span
               ><span class="unit">%</span>
@@ -124,11 +140,7 @@
           </div>
           <div class="cards" id="feels-like">
             <h6>Feels-Like</h6>
-            <img
-              src="icons/thermometer-outline48.svg"
-              alt=""
-              id="feels-like-icon"
-            />
+            <img src="icons/warm.svg" alt="" id="feels-like-icon" />
             <div class="feels-like-value">
               <span class="values" id="feel-val">--</span
               ><img id="degree-12" src="icons/degree12px.svg" />
@@ -136,11 +148,43 @@
           </div>
           <div class="cards" id="wind">
             <h6>Wind</h6>
-            <img src="icons/ph_wind48px.svg" alt="" id="wind-icon" />
+            <img src="icons/windy.svg" alt="" id="wind-icon" />
             <div class="wind-value">
               <span class="values" id="win-val">--</span
               ><span class="unit">km/h</span>
             </div>
+          </div>
+        </div>
+        <div class="daily-conditions">
+          <div class="c1 daily-cards">
+            <h3 id="c1"></h3>
+            <img id="c1-img" src="" alt="" />
+            <h3 id="c1-val"></h3>
+          </div>
+          <div class="c2 daily-cards">
+            <h3 id="c2"></h3>
+            <img id="c2-img" src="" alt="" />
+            <h3 id="c2-val"></h3>
+          </div>
+          <div class="c3 daily-cards">
+            <h3 id="c3"></h3>
+            <img id="c3-img" src="" alt="" />
+            <h3 id="c3-val"></h3>
+          </div>
+          <div class="c4 daily-cards">
+            <h3 id="c4"></h3>
+            <img id="c4-img" src="" alt="" />
+            <h3 id="c4-val"></h3>
+          </div>
+          <div class="c5 daily-cards">
+            <h3 id="c5"></h3>
+            <img id="c5-img" src="" alt="" />
+            <h3 id="c5-val"></h3>
+          </div>
+          <div class="c6 daily-cards">
+            <h3 id="c6"></h3>
+            <img id="c6-img" src="" alt="" />
+            <h3 id="c6-val"></h3>
           </div>
         </div>
       </div>
